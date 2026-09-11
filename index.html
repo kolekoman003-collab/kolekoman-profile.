@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Personal portfolio — projects, education, certificates and contact information." />
+  <title>Portfolio • Your Name</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+
+  <header class="navbar glass">
+    <a class="brand" href="#home" aria-label="Home"><span class="brand-dot"></span><span data-i18n="brand">Portfolio</span></a>
+    <nav>
+      <a href="#home" data-i18n="navHome">خانه</a>
+      <a href="#about" data-i18n="navAbout">درباره من</a>
+      <a href="#projects" data-i18n="navProjects">پروژه‌ها</a>
+      <a href="#education" data-i18n="navEducation">تحصیلات</a>
+      <a href="#contact" data-i18n="navContact">تماس</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">☾</button>
+      <button class="lang-btn" id="langBtn">EN</button>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero section-shell">
+      <div class="hero-copy">
+        <span class="eyebrow" data-i18n="eyebrow">طراح و توسعه‌دهنده وب</span>
+        <h1><span data-i18n="hello">سلام، من</span> <span class="accent" data-name>نام شما</span><br><span data-i18n="heroTitle">هستم؛ ایده‌ها را به تجربه‌های دیجیتال تبدیل می‌کنم.</span></h1>
+        <p data-i18n="heroText">یک پورتفولیو مدرن برای معرفی مهارت‌ها، پروژه‌ها، مدارک تحصیلی و راه‌های ارتباطی شما؛ با ظاهر شیشه‌ای و نورپردازی نئونی.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#projects" data-i18n="viewProjects">دیدن پروژه‌ها</a>
+          <a class="btn secondary" id="whatsHero" href="#contact" data-i18n="hireMe">برای پروژه پیام بده</a>
+        </div>
+        <div class="mini-stats">
+          <div><strong>4</strong><span data-i18n="statProjects">پروژه</span></div>
+          <div><strong>∞</strong><span data-i18n="statIdeas">ایده</span></div>
+          <div><strong>2</strong><span data-i18n="statLanguages">زبان</span></div>
+        </div>
+      </div>
+      <div class="hero-visual glass-card">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div>
+        <div class="avatar-ring"><div class="avatar-placeholder">YN</div></div>
+        <div class="floating-card card-top"><span class="pulse"></span><span data-i18n="available">آماده همکاری</span></div>
+        <div class="floating-card card-bottom"><small data-i18n="focus">تمرکز</small><strong>Web / UI / JS</strong></div>
+        <div class="hero-grid-text">01<br><span>PORTFOLIO</span></div>
+      </div>
+    </section>
+
+    <section id="about" class="section-shell two-col">
+      <div class="glass-card section-card">
+        <div class="section-head"><div><span class="kicker">01</span><h2 data-i18n="aboutTitle">درباره من</h2></div></div>
+        <p data-i18n="aboutText">اینجا یک معرفی کوتاه از خودت قرار بده؛ رشته، علاقه، سبک کاری، هدف حرفه‌ای و چیزهایی که تو را از بقیه متمایز می‌کند. این متن را خیلی راحت می‌توانی از داخل فایل index.html تغییر بدهی.</p>
+        <div class="chips"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>UI Design</span><span>Responsive</span></div>
+      </div>
+      <div class="glass-card section-card terminal-card">
+        <div class="terminal-head"><span></span><span></span><span></span><small>about.json</small></div>
+        <pre><code>{
+  "role": "Web Designer",
+  "experience": "Your experience",
+  "projects": 4,
+  "available": true,
+  "location": "Iran"
+}</code></pre>
+      </div>
+    </section>
+
+    <section id="projects" class="section-shell">
+      <div class="section-heading"><div><span class="kicker">02</span><h2 data-i18n="projectsTitle">نمونه پروژه‌ها</h2></div><span class="section-note" data-i18n="projectsNote">چهار پروژه کلیدی</span></div>
+      <div class="project-grid">
+        <article class="project-card glass-card"><div class="project-media media-1"><span>01</span><div class="media-ui ui-bars"><i></i><i></i><i></i></div></div><div class="project-body"><div class="project-title"><h3 data-project="1">Kolekoman</h3><span>01</span></div><p data-i18n="project1">یک فروشگاه خوب با رابط کاربری عالی</p><div class="tags"><span>HTML</span><span>CSS</span><span>JS</span></div><a class="text-link" href="shop 1/index.html" data-i18n="projectLink">مشاهده / سفارش</a></div></article>
+        <article class="project-card glass-card"><div class="project-media media-2"><span>02</span><div class="media-ui ui-ring"></div></div><div class="project-body"><div class="project-title"><h3>NEXIFYBIKE</h3><span>02</span></div><p data-i18n="project2">فروشگاه لوکس ، تایپوگرافی مدرن و تعامل‌های جذاب.</p><div class="tags"><span>HTML</span><span>CSS</span><span>JS</span></div><a class="text-link" href="shop 2/index.html" data-i18n="projectLink">مشاهده / سفارش</a></div></article>
+        <article class="project-card glass-card"><div class="project-media media-3"><span>03</span><div class="media-ui ui-chart"><b></b><b></b><b></b><b></b></div></div><div class="project-body"><div class="project-title"><h3 data-project="3">kolekoman</h3><span>03</span></div><p data-i18n="project3">فروشگاه لوکس و مدرن</p><div class="tags"><span>HTML</span><span>CSS</span><span>JS</span></div><a class="text-link" href="shop 3/index.html" data-i18n="projectLink">مشاهده / سفارش</a></div></article>
+        <article class="project-card glass-card"><div class="project-media media-4"><span>04</span><div class="media-ui ui-terminal">&gt;_</div></div><div class="project-body"><div class="project-title"><h3 data-project="4">LUMORA</h3><span>04</span></div><p data-i18n="project4">برند و صفحه معرفی خدمات طراحی سایت با فضای تکنولوژی و استایل نئونی.</p><div class="tags"><span>HTML</span><span>CSS</span><span>JS</span></div><a class="text-link" href="shop 4/index.html" data-i18n="projectLink">مشاهده / سفارش</a></div></article>
+      </div>
+    </section>
+
+    <section id="education" class="section-shell two-col">
+      <div class="glass-card section-card">
+        <div class="section-heading compact"><div><span class="kicker">03</span><h2 data-i18n="educationTitle">تحصیلات و مدارک</h2></div></div>
+        <div class="timeline">
+          <div class="timeline-item"><span class="dot"></span><div><small>2024 — 2026</small><h3 data-edu="1">مدرک / رشته اول</h3><p data-i18n="eduText">نام موسسه یا مدرسه · توضیح کوتاه درباره مدرک</p></div></div>
+          <div class="timeline-item"><span class="dot"></span><div><small>2023 — 2024</small><h3 data-edu="2">مدرک / دوره دوم</h3><p data-i18n="eduText">نام موسسه یا مدرسه · توضیح کوتاه درباره مدرک</p></div></div>
+          <div class="timeline-item"><span class="dot"></span><div><small>2022 — 2023</small><h3 data-edu="3">گواهی تخصصی</h3><p data-i18n="eduText">نام پلتفرم یا موسسه · موضوع دوره</p></div></div>
+        </div>
+      </div>
+      <div class="glass-card section-card certificate-panel">
+        <div class="cert-icon">✦</div><h3 data-i18n="certTitle">قابل شخصی‌سازی</h3><p data-i18n="certText">عکس یا فایل مدارک واقعی خودت را می‌توانی به این بخش اضافه کنی. ساختار سایت آماده است و فقط اطلاعاتت را جایگزین کن.</p><a href="#contact" class="btn secondary" data-i18n="contactForDocs">تماس برای همکاری</a>
+      </div>
+    </section>
+
+    <section id="contact" class="section-shell contact-section">
+      <div class="contact-main glass-card">
+        <div><span class="kicker">04</span><h2 data-i18n="contactTitle">بیا یک پروژه خفن بسازیم</h2><p data-i18n="contactText">برای سفارش سایت، طراحی رابط کاربری یا همکاری، از یکی از راه‌های زیر پیام بده.</p></div>
+        <div class="contact-grid">
+          <a class="contact-item" id="waLink" href="#" target="_blank"><span>◉</span><div><small>WhatsApp</small><strong data-phone>+98 9107440051</strong></div></a>
+          <a class="contact-item" id="telLink" href="tel:+989107440051"><span>⌕</span><div><small data-i18n="phone">شماره</small><strong data-phone>+98 9107440051</strong></div></a>
+          <a class="contact-item" id="igLink" href="https://instagram.com/kolekoman" target="_blank"><span>◎</span><div><small>Instagram</small><strong>@kolekoman</strong></div></a>
+          <a class="contact-item" id="mailLink" href=kolekoman003@gmail.com"><span>✉</span><div><small>Email</small><strong>kolekoman003@gmail.com</strong></div></a>
+        </div>
+      </div>
+      <div class="glass-card whatsapp-box"><div class="wa-bubble">WA</div><h3 data-i18n="waTitle">پیام آماده سفارش</h3><p id="waPreview" data-i18n="waMessage">سلام، برای سفارش یک پروژه وب می‌خواستم با شما صحبت کنم.</p><button class="btn primary full" id="waBtn" data-i18n="waButton">ارسال در واتساپ</button></div>
+    </section>
+  </main>
+
+  <footer><span>© <span id="year"></span> <span data-name>نام شما</span></span><span data-i18n="footer">Designed & built with glass + neon.</span></footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
