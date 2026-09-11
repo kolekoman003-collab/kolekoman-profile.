@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فروشگاه | Nexify Bike</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo"><i class="fas fa-bicycle"></i><span>NEXIFY<span>BIKE</span></span></div>
+            <nav class="navbar">
+                <a href="index.html" class="nav-link">خانه</a>
+                <a href="shop.html" class="nav-link active">فروشگاه</a>
+                <a href="about.html" class="nav-link">درباره ما</a>
+            </nav>
+            <div class="header-actions">
+                <a href="tel:09123456789" class="btn-3d" style="font-size: 0.85rem; gap: 0.4rem; padding: 0.5rem 1rem;">
+                    <i class="fas fa-phone-alt"></i> <span>تماس فوری</span>
+                </a>
+                <button class="btn-3d cart-icon" id="cartTrigger">
+                    <i class="fas fa-shopping-bag"></i><span class="cart-badge" id="cartBadge">0</span>
+                </button>
+                <button id="themeToggle" class="btn-3d"><i class="fas fa-sun"></i></button>
+                <div class="hamburger" id="hamburgerMenu"><span></span><span></span><span></span></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="ticker-wrap reveal-up delay-1">
+            <div class="ticker-track">
+                <div class="ticker-item">محصولات جدید فیبر کربن سال ۲۰۲۶ رونمایی شد</div>
+                <div class="ticker-item"><i class="fas fa-fire"></i> تخفیف ویژه قطعات تا پایان این هفته</div>
+                <div class="ticker-item">محصولات جدید فیبر کربن سال ۲۰۲۶ رونمایی شد</div>
+            </div>
+        </div>
+
+        <div class="shop-wrapper">
+            <aside class="filter-aside glass-card reveal-right delay-2">
+                <h3>فیلترهای پیشرفته</h3>
+                <div class="filter-box">
+                    <label>جستجوی نام کالا</label>
+                    <input type="text" id="searchProduct" placeholder="نام مدل...">
+                </div>
+                <div class="filter-box">
+                    <label>دسته‌بندی اصلی</label>
+                    <select id="categorySelect">
+                        <option value="all">همه دسته‌ها</option>
+                        <option value="bike">دوچرخه کامل</option>
+                        <option value="parts">قطعات جانبی و یدکی</option>
+                    </select>
+                </div>
+                <div class="filter-box">
+                    <label>نوع بدنه / فریم</label>
+                    <select id="typeSelect">
+                        <option value="all">همه مدل‌ها</option>
+                        <option value="carbon">فیبر کربن</option>
+                        <option value="aluminum">آلومینیوم تاشو</option>
+                    </select>
+                </div>
+                <div class="filter-box">
+                    <label>حداکثر قیمت (میلیون)</label>
+                    <input type="range" id="priceRange" min="5" max="95" value="95">
+                    <span id="priceText" class="neon-text">95 میلیون تومان</span>
+                </div>
+            </aside>
+
+            <div class="shop-products">
+                <div class="prod-card glass-card reveal-up delay-1" data-category="bike" data-type="carbon" data-price="85">
+                    <div class="prod-img-box"><img src="https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?auto=format&fit=crop&w=500&q=80" alt="bike"></div>
+                    <div class="prod-info">
+                        <h4>دوچرخه حرفه‌ای Carbon-X</h4>
+                        <div class="prod-details"><span class="price-tag">85,000,000 تومان</span></div>
+                    </div>
+                    <button class="add-btn">افزودن به سبد خرید</button>
+                </div>
+                <div class="prod-card glass-card reveal-up delay-2" data-category="parts" data-type="carbon" data-price="12">
+                    <div class="prod-img-box"><img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=500&q=80" alt="parts"></div>
+                    <div class="prod-info">
+                        <h4>دوشاخ فیبر کربنی پرو</h4>
+                        <div class="prod-details"><span class="price-tag">12,000,000 تومان</span></div>
+                    </div>
+                    <button class="add-btn">افزودن به سبد خرید</button>
+                </div>
+                <div class="prod-card glass-card reveal-up delay-3" data-category="bike" data-type="aluminum" data-price="38">
+                    <div class="prod-img-box"><img src="https://images.unsplash.com/photo-1571068316341-250297496367?auto=format&fit=crop&w=500&q=80" alt="bike"></div>
+                    <div class="prod-info">
+                        <h4>مدل شهری اوربان آلیاژ</h4>
+                        <div class="prod-details"><span class="price-tag">38,000,000 تومان</span></div>
+                    </div>
+                    <button class="add-btn">افزودن به سبد خرید</button>
+                </div>
+                <div class="prod-card glass-card reveal-up delay-4" data-category="parts" data-type="aluminum" data-price="5">
+                    <div class="prod-img-box"><img src="https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?auto=format&fit=crop&w=500&q=80" alt="parts"></div>
+                    <div class="prod-info">
+                        <h4>فرمان آلومینیوم کورسی</h4>
+                        <div class="prod-details"><span class="price-tag">5,000,000 تومان</span></div>
+                    </div>
+                    <button class="add-btn">افزودن به سبد خرید</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="cart-modal glass-card" id="cartModal">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-basket"></i> سبد خرید شما</h3>
+            <i class="fas fa-times close-cart" id="closeCart"></i>
+        </div>
+        <div class="cart-items-list" id="cartItemsList"></div>
+        <div style="display:flex; justify-content:space-between; font-weight:900; margin-bottom:1.5rem;">
+            <span>جمع کل:</span>
+            <span id="totalPrice" class="neon-text">0 تومان</span>
+        </div>
+        <form class="checkout-form" id="checkoutForm">
+            <h4><i class="fas fa-user-check"></i> اطلاعات گیرنده و ارسال</h4>
+            <div class="form-group">
+                <label>نام و نام خانوادگی</label>
+                <input type="text" id="fullName" required placeholder="نام مشتری...">
+            </div>
+            <div class="form-group">
+                <label>شماره تماس</label>
+                <input type="tel" id="userPhone" required placeholder="0912xxxxxxx">
+            </div>
+            <div class="form-group">
+                <label>استان محل تحویل</label>
+                <select id="userProvince" required>
+                    <option value="">انتخاب استان...</option>
+                    <option value="tehran">تهران</option>
+                    <option value="isfahan">اصفهان</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>آدرس دقیق پستی</label>
+                <input type="text" id="userAddress" required placeholder="آدرس دقیق...">
+            </div>
+            <button type="submit" class="btn-neon" style="width:100%; justify-content:center; margin-top:1rem;">تأیید و پرداخت نهایی</button>
+        </form>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-contact-box">
+            <a href="https://instagram.com/nexify" target="_blank" class="btn-contact insta"><i class="fab fa-instagram"></i> اینستاگرام ما</a>
+            <a href="tel:09123456789" class="btn-contact"><i class="fas fa-phone-alt"></i> تماس با پشتیبانی</a>
+        </div>
+        <p>© 2026 تیم برنامه‌نویسی Nexify. تمامی حقوق محفوظ است.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

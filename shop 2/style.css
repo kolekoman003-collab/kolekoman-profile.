@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700;900&display=swap');
+
+:root {
+    --bg-color: #0b0f19;
+    --card-bg: rgba(20, 30, 48, 0.6);
+    --border-color: rgba(0, 255, 157, 0.15);
+    --text-color: #f5f6fa;
+    --neon-color: #00ff9d; 
+    --shadow-neon: rgba(0, 255, 157, 0.4);
+    --text-muted: #a0aec0;
+}
+
+.light-theme {
+    --bg-color: #f7fafc;
+    --card-bg: rgba(255, 255, 255, 0.7);
+    --border-color: rgba(255, 107, 107, 0.2);
+    --text-color: #1a202c;
+    --neon-color: #ff6b6b; 
+    --shadow-neon: rgba(255, 107, 107, 0.4);
+    --text-muted: #4a5568;
+}
+
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Vazirmatn', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+    line-height: 1.8;
+}
+
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* هدر لوکس */
+.main-header {
+    position: fixed; top: 0; width: 100%; z-index: 999;
+    background: var(--card-bg); backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-color);
+}
+.header-container {
+    max-width: 1400px; margin: 0 auto; padding: 1.2rem 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+}
+.logo { font-size: 1.6rem; font-weight: 900; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap; }
+.logo span { color: var(--neon-color); text-shadow: 0 0 10px var(--shadow-neon); }
+
+.navbar { display: flex; gap: 2.5rem; }
+.nav-link {
+    color: var(--text-color); text-decoration: none; font-weight: 700;
+    position: relative; padding: 0.5rem 0; transition: color 0.3s;
+}
+.nav-link::after {
+    content: ''; position: absolute; bottom: 0; right: 0; width: 0; height: 3px;
+    background: var(--neon-color); transition: width 0.3s ease;
+}
+.nav-link:hover::after, .nav-link.active::after { width: 100%; }
+.nav-link:hover { color: var(--neon-color); }
+
+.header-actions { display: flex; align-items: center; gap: 1.2rem; }
+
+/* دکمه‌های ۳بعدی */
+.btn-3d {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    color: var(--text-color);
+    padding: 0.6rem 1.2rem;
+    border-radius: 14px;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 5px 0px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+    transform: translateY(-3px);
+    transition: all 0.1s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-3d:active { transform: translateY(2px); box-shadow: 0 0px 0px transparent; }
+.btn-3d:hover { border-color: var(--neon-color); color: var(--neon-color); box-shadow: 0 5px 15px var(--shadow-neon); }
+.cart-icon { position: relative; font-size: 1.1rem; }
+.cart-badge {
+    position: absolute; top: -10px; left: -10px;
+    background: var(--neon-color); color: #000;
+    font-size: 0.75rem; font-weight: 900;
+    padding: 2px 7px; border-radius: 50%;
+}
+
+/* تیکر بی‌انتها و تمام‌عرض */
+.ticker-wrap {
+    background: rgba(0, 0, 0, 0.25); 
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.5rem 0; 
+    overflow: hidden; 
+    margin: 3rem 0;
+    width: 100%;
+    position: relative;
+}
+.ticker-wrap.reverse .ticker-track { animation-direction: reverse; }
+.ticker-track { display: flex; width: max-content; gap: 5rem; animation: tickerMove 25s linear infinite; will-change: transform; }
+.ticker-item { font-size: 1.4rem; font-weight: 900; color: var(--text-color); display: flex; align-items: center; gap: 1rem; white-space: nowrap; }
+.ticker-item i { color: var(--neon-color); text-shadow: 0 0 8px var(--neon-color); }
+
+@keyframes tickerMove {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
+}
+
+/* لایوت هیرو */
+.main-content { margin-top: 90px; padding-bottom: 4rem; }
+.hero-section {
+    display: grid; grid-template-columns: 1fr 1fr;
+    max-width: 1400px; margin: 0 auto; padding: 4rem 2rem; align-items: center; gap: 4rem;
+}
+.hero-text h1 { font-size: 4rem; font-weight: 900; line-height: 1.3; }
+.neon-text { color: var(--neon-color); text-shadow: 0 0 15px var(--shadow-neon); }
+.hero-text p { color: var(--text-muted); font-size: 1.15rem; margin: 2rem 0; }
+
+.floating-img { width: 100%; max-height: 450px; object-fit: contain; animation: floatSmooth 4.5s ease-in-out infinite; }
+@keyframes floatSmooth { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-18px); } }
+
+.btn-neon {
+    background: var(--neon-color); color: #000; padding: 1rem 2.8rem;
+    border-radius: 50px; text-decoration: none; font-weight: 900;
+    display: inline-flex; align-items: center; gap: 0.8rem; border: none; cursor: pointer;
+    box-shadow: 0 4px 15px var(--shadow-neon); transition: 0.3s;
+}
+.btn-neon:hover { transform: translateY(-3px); box-shadow: 0 8px 25px var(--shadow-neon); }
+
+/* ساختار فروشگاه */
+.shop-wrapper { display: grid; grid-template-columns: 320px 1fr; max-width: 1400px; margin: 0 auto; padding: 2rem; gap: 2.5rem; }
+.filter-aside { padding: 2rem; height: max-content; position: sticky; top: 110px; z-index: 10; }
+.filter-box { margin-bottom: 1.6rem; }
+.filter-box label { display: block; font-weight: 700; margin-bottom: 0.6rem; font-size: 0.95rem; }
+.filter-box select, .filter-box input {
+    width: 100%; padding: 0.8rem; border-radius: 12px;
+    background: rgba(0,0,0,0.2); border: 1px solid var(--border-color); color: var(--text-color); outline: none;
+}
+.filter-box input[type="range"] { accent-color: var(--neon-color); }
+
+.shop-products { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
+.prod-card { padding: 1.3rem; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.3s ease, border-color 0.3s; }
+.prod-img-box { width: 100%; height: 210px; overflow: hidden; border-radius: 15px; margin-bottom: 1.2rem; }
+.prod-img-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.prod-card:hover .prod-img-box img { transform: scale(1.06); }
+.prod-card:hover { border-color: var(--neon-color); transform: translateY(-5px); }
+.price-tag { font-weight: 900; color: var(--neon-color); font-size: 1.1rem; }
+
+.add-btn {
+    width: 100%; background: transparent; border: 2px solid var(--neon-color);
+    color: var(--text-color); padding: 0.75rem; border-radius: 12px;
+    font-weight: 700; cursor: pointer; transition: 0.2s; margin-top: 1rem;
+}
+.add-btn:hover { background: var(--neon-color); color: #000; font-weight: 900; }
+
+/* سبد خرید */
+.cart-modal {
+    position: fixed; top: 0; left: -460px; width: 440px; height: 100%;
+    z-index: 10000; padding: 2.5rem 2rem; overflow-y: auto;
+    transition: left 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    border-radius: 0 25px 25px 0;
+}
+.cart-modal.open { left: 0; box-shadow: 10px 0 50px rgba(0,0,0,0.6); }
+.cart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; }
+.close-cart { cursor: pointer; font-size: 1.4rem; color: var(--neon-color); }
+.cart-items-list { margin-bottom: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+.cart-item-row { display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.15); padding: 1rem; border-radius: 12px; border: 1px solid var(--border-color); }
+
+.checkout-form h4 { margin-bottom: 1.2rem; color: var(--neon-color); border-top: 1px solid var(--border-color); padding-top: 1.5rem; font-weight: 900; }
+.form-group { margin-bottom: 1.2rem; }
+.form-group label { display: block; font-size: 0.85rem; margin-bottom: 0.4rem; font-weight: 700; }
+.form-group input, .form-group select {
+    width: 100%; padding: 0.8rem; border-radius: 10px;
+    background: rgba(0,0,0,0.2); border: 1px solid var(--border-color); color: var(--text-color); outline: none;
+}
+
+/* فوتر و تماس */
+.footer-contact-box { display: flex; justify-content: center; gap: 1.5rem; margin: 1.5rem 0; flex-wrap: wrap; }
+.btn-contact {
+    padding: 0.6rem 1.5rem; border-radius: 50px; font-weight: 700; font-size: 0.9rem;
+    text-decoration: none; color: #000; background: var(--neon-color);
+    box-shadow: 0 4px 12px var(--shadow-neon); transition: 0.3s;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+}
+.btn-contact.insta { background: #e1306c; color: #fff; box-shadow: 0 4px 12px rgba(225, 48, 108, 0.4); }
+.btn-contact:hover { transform: translateY(-3px); filter: brightness(1.1); }
+
+.stats-row { display: flex; justify-content: space-around; gap: 2rem; flex-wrap: wrap; max-width: 1400px; margin: 4rem auto; padding: 0 2rem; }
+.stat-card { padding: 2.5rem; width: 280px; text-align: center; }
+.stat-card h2 { font-size: 3.5rem; font-weight: 900; color: var(--neon-color); text-shadow: 0 0 10px var(--shadow-neon); }
+
+.team-wrap { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; max-width: 1400px; margin: 0 auto; padding: 2rem; }
+.team-member { padding: 3rem 2rem; text-align: center; }
+.avatar-box { width: 110px; height: 110px; border-radius: 50%; border: 2px dashed var(--neon-color); margin: 0 auto 1.5rem auto; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; color: var(--neon-color); }
+
+.main-footer { background: #060911; padding: 3rem 2rem; border-top: 1px solid var(--border-color); text-align: center; font-size: 0.95rem; color: var(--text-muted); }
+
+/* دکمه همبرگر متمایز */
+.hamburger { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 1001; }
+.hamburger span { width: 24px; height: 3px; background: var(--text-color); border-radius: 2px; transition: 0.3s; }
+
+/* تغییرات استایل دکمه همبرگر در حالت باز */
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(6px, -7px); }
+
+/* ========================================================
+   بخش ویژه و بهینه‌سازی نهایی ریسپانسیو موبایل و هدر
+======================================================== */
+@media (max-width: 1024px) {
+    .hero-section { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+    .hero-text h1 { font-size: 2.8rem; }
+    .shop-wrapper { grid-template-columns: 1fr; padding: 1rem; }
+    .filter-aside { position: relative; top: 0; width: 100%; margin-bottom: 2rem; }
+}
+
+@media (max-width: 768px) {
+    /* کوچک‌سازی المان‌های هدر در موبایل */
+    .header-container { padding: 0.8rem 1rem; }
+    .logo { font-size: 1.2rem; }
+    
+    .header-actions { gap: 0.6rem; }
+    .header-actions .btn-3d { padding: 0.4rem 0.8rem; font-size: 0.75rem; border-radius: 10px; }
+    .header-actions .btn-3d span { display: none; } /* حذف متن تماس فوری برای خلوت شدن هدر */
+    
+    /* رفع باگ دسترسی و نمایش ناوبری موبایل */
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0; right: -100%; 
+        width: 75%; height: 100vh;
+        background: rgba(11, 15, 25, 0.95);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        padding: 6rem 2rem 2rem 2rem;
+        gap: 2rem;
+        border-left: 1px solid var(--border-color);
+        transition: right 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        z-index: 1000;
+    }
+    .navbar.active { right: 0; box-shadow: -10px 0 40px rgba(0,0,0,0.5); }
+    .nav-link { font-size: 1.2rem; width: max-content; }
+    
+    .hamburger { display: flex; }
+    .cart-modal { width: 100%; left: -100%; border-radius: 0; padding: 2rem 1rem; }
+    .ticker-item { font-size: 1.1rem; }
+}
+/* ========================================================
+   سیستم انیمیشن ظهور نرم و زنجیره‌ای (Fade & Spawn)
+======================================================== */
+
+/* حالت اولیه: مخفی و کمی جابه‌جا شده */
+.reveal-left {
+    opacity: 0;
+    transform: translate3d(-40px, 0, 0);
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translate3d(40px, 0, 0);
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-up {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0);
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: opacity, transform;
+}
+
+/* حالت فعال: ظاهر شدن کامل در جای اصلی */
+.reveal-active {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) !important;
+}
+
+/* تاخیرهای زمانی جادویی برای دونه دونه باز شدن (Stagger Effect) */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.25s; }
+.delay-3 { transition-delay: 0.4s; }
+.delay-4 { transition-delay: 0.55s; }
