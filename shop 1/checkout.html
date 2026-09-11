@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کول‌استور | اطلاعات ارسال مرسوله</title>
+    <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="global.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body class="dark-shop-body">
+
+<header>
+    <div class="logo">گالری <span>ماتیک</span></div>
+    
+    <div class="header-search-box">
+        <input type="text" id="global-search" placeholder="جستجو در محصولات...">
+        <i class='bx bx-search search-icon'></i>
+    </div>
+
+    <nav id="nav-menu">
+        <a href="index.html" class="active">خانه</a>
+        <a href="shop.html">فروشگاه</a>
+        <a href="profile.html">حساب کاربری</a>
+    </nav>
+
+    <div class="header-right">
+        <a href="index.html" class="mobile-nav-icon" title="خانه"><i class='bx bx-home-alt'></i></a>
+        
+        <a href="shop.html" class="mobile-nav-icon" title="فروشگاه"><i class='bx bx-store'></i></a>
+
+        <button id="dark-mode-toggle" class="theme-btn-header" title="تغییر پوسته"><i class='bx bx-moon'></i></button>
+        
+        <a href="profile.html" class="profile-btn" title="حساب کاربری"><i class='bx bx-user'></i></a>
+        
+        <div class="cart-btn" id="cart-trigger-btn" title="سبد خرید">
+            <i class='bx bx-cart'></i>
+            <span id="cart-count">0</span>
+        </div>
+    </div>
+</header>
+
+    <main class="checkout-section">
+        <div class="checkout-container">
+            <div class="checkout-form-side">
+                <h3><i class='bx bx-map'></i> آدرس و مشخصات تحویل گیرنده</h3>
+               <form id="final-checkout-form">
+    <div class="form-row">
+        <div class="form-group">
+            <label>نام و نام خانوادگی</label>
+            <input type="text" id="checkout-name" required>
+        </div>
+        <div class="form-group">
+            <label>شماره همراه</label>
+            <input type="tel" id="checkout-phone" required>
+        </div>
+    </div>
+    
+<div class="form-row">
+    <div class="form-group">
+        <label>استان</label>
+        <select id="checkout-province" required>
+            <option value="">انتخاب استان...</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>شهر</label>
+        <select id="checkout-city" required disabled>
+            <option value="">ابتدا استان را انتخاب کنید...</option>
+        </select>
+    </div>
+</div>
+
+
+        <div class="form-group">
+            <label>واحد</label>
+            <input type="text">
+        </div>
+        <div class="form-group">
+            <label>کد پستی ده رقمی</label>
+            <input type="text" required>
+        </div>
+    </div>
+
+    <div class="payment-method-section">
+        <label class="section-label">روش پرداخت</label>
+        <div class="payment-options">
+            <label class="payment-option-card">
+                <input type="radio" name="payment_method" value="online" checked>
+                <div class="option-content">
+                    <i class='bx bx-credit-card-front'></i>
+                    <span>پرداخت آنلاین (اتصال به درگاه)</span>
+                </div>
+            </label>
+            
+            <!-- این بخش به صورت پیش‌فرض مخفی است و با نوشتن کلمه تهران باز می‌شود -->
+            <label class="payment-option-card" id="cod-option-wrapper" style="display: none;">
+                <input type="radio" name="payment_method" value="cod">
+                <div class="option-content">
+                    <i class='bx bx-package'></i>
+                    <span>پرداخت درب منزل (مخصوص تهران)</span>
+                </div>
+            </label>
+        </div>
+    </div>
+
+    <button type="submit" class="submit-checkout-btn" id="submit-order-btn">تایید و اتصال به درگاه بانکی</button>
+</form>
+            </div>
+            <div class="checkout-summary-side">
+                <h3>خلاصه فاکتور</h3>
+                <div id="checkout-items-list"></div>
+                <div class="summary-total-bar"><span>قابل پرداخت:</span><span id="checkout-final-price">$0.00</span></div>
+            </div>
+        </div>
+    </main>
+
+    <div id="toast-container"></div>
+<script src="../assets/js/products.js"></script>
+
+<script src="main.js"></script>
+
+
+<script>
+const iranData = {
+  "آذربایجان شرقی": ["تبریز", "مراغه", "مرند", "اهر", "میانه", "بناب", "شبستر", "سراب", "هادیشهر", "آذرشهر", "اسکو", "بستان‌آباد", "هشترود", "کلیبر", "ملکان", "عجب‌شیر", "جلفا", "ورزقان", "هریس", "چاراویماق"],
+  "آذربایجان غربی": ["ارومیه", "خوی", "میاندوآب", "بوکان", "مهاباد", "سلماس", "نقده", "پیرانشهر", "تکاب", "شاهین‌دژ", "ماکو", "اشنویه", "سردشت", "چالدران", "پلدشت", "شوط", "چایپاره"],
+  "اردبیل": ["اردبیل", "پارس‌آباد", "مشگین‌شهر", "خلخال", "گرمی", "بیله‌سوار", "نمین", "نیر", "کوثر", "سرعین"],
+  "اصفهان": ["اصفهان", "کاشان", "خمینی‌شهر", "نجف‌آباد", "شاهین‌شهر", "شهرضا", "زرین‌شهر", "آران و بیدگل", "فلاورجان", "گلپایگان", "نطنز", "اردستان", "نائین", "سمیرم", "خوانسار", "فریدن", "فریدون‌شهر", "چادگان", "دهاقان", "تیران", "مبارکه", "لنجان", "خور و بیابانک"],
+  "البرز": ["کرج", "فردیس", "نظرآباد", "کمالشهر", "محمدشهر", "اشتهارد", "طالقان", "ساوجبلاغ", "هشتگرد"],
+  "ایلام": ["ایلام", "دهلران", "آبدانان", "مهران", "دره‌شهر", "ایوان", "چرداول", "بدره", "ملکشاهی", "سیروان", "هلیلان"],
+  "بوشهر": ["بوشهر", "برازجان", "گناوه", "بندر دیلم", "بندر کنگان", "خورموج", "اهرم", "جم", "دیر", "تنگستان", "عسلویه", "دشتی"],
+  "تهران": ["تهران", "اسلامشهر", "شهریار", "ری", "ورامین", "پاکدشت", "قرچک", "ملارد", "رباط‌کریم", "قدس", "پردیس", "دماوند", "فیروزکوه", "پیشوا", "بومهن", "نسیم‌شهر", "باقرشهر", "صفادشت"],
+  "چهارمحال و بختیاری": ["شهرکرد", "بروجن", "فارسان", "لردگان", "اردل", "فرخ‌شهر", "سامان", "کیار", "بن", "کوهرنگ"],
+  "خراسان جنوبی": ["بیرجند", "قائن", "فردوس", "طبس", "نهبندان", "سرایان", "بشرویه", "خوسف", "درمیان", "سربیشه", "زیرکوه"],
+  "خراسان رضوی": ["مشهد", "نیشابور", "سبزوار", "تربت حیدریه", "قوчан", "تربت جام", "کاشمر", "گناباد", "چناران", "تایباد", "خواف", "فریمان", "سرخس", "درگز", "طرقبه", "گلبهار", "بردسکن", "فیروزه"],
+  "خراسان شمالی": ["بجنورد", "شیروان", "اسفراین", "آشخانه", "جاجرم", "فاروج", "گرمه", "راز و جرگلان"],
+  "خوزستان": ["اهواز", "آبادان", "خرمشهر", "دزفول", "اندیمشک", "بهبهان", "ماهشهر", "شوشتر", "ایذه", "مسجدسلیمان", "شوش", "رامهرمز", "شادگان", "باغ‌ملک", "امیدیه", "هندیجان", "لالی", "گتوند", "هفتکل", "رامشیر"],
+  "زنجان": ["زنجان", "ابهر", "خرمدره", "قیدار", "ماه‌نشان", "طارم", "ایجرود", "سلطانیه"],
+  "sسمنان": ["سمنان", "شاهرود", "دامغان", "گرمسار", "مهدی‌شهر", "سرخه", "آرادان", "میامی"],
+  "سیستان و بلوچستان": ["زاهدان", "زابل", "چابهار", "ایرانشهر", "سراوان", "خاش", "کنارک", "نیک‌شهر", "سرباز", "میرجاوه", "راسک", "فنوج", "قصرقند", "مهرستان", "دلگان"],
+  "فارس": ["شیراز", "مرودشت", "جهرم", "فسا", "کازرون", "داراب", "فیروزآباد", "لارستان", "آباده", "اقلید", "نی‌ریز", "استهبان", "سپیدان", "ممسنی", "لامرد", "گراش", "خرامه", "زرین‌دشت", "خنج", "ارسنجان", "بوانات", "پاسارگاد", "کوار"],
+  "قزوین": ["قزوین", "تاکستان", "آبیک", "بوئین‌زهرا", "آوج", "محمدیه", "الوند"],
+  "قم": ["قم", "کهک", "جعفریه", "دستجرد", "سلفچگان"],
+  "کردستان": ["سنندج", "سقز", "مریوان", "بانه", "بیجار", "قروه", "کامیاران", "دیواندره", "دهگلان", "سروآباد"],
+  "کرمان": ["کرمان", "سیرجان", "رفسنجان", "جیرفت", "بم", "زرند", "شهربابک", "بافت", "کهنوج", "راور", "انار", "بردسیر", "عنبرآباد", "منوجان", "رودبار جنوب", "فهرج", "ریگان", "قلعه‌گنج"],
+  "کرمانشاه": ["کرمانشاه", "اسلام‌آباد غرب", "هرسین", "کنگاور", "سنقر", "صحنه", "پاوه", "جوانرود", "گیلانغرب", "سرپل ذهاب", "قصرشیرین", "روانسر", "ثلاث باباجانی", "دالاهو"],
+  "کهگیلویه و بویراحمد": ["یاسوج", "دوگنبدان", "دهدشت", "سی‌سخت", "لیکک", "چرام", "باشت", "لنده"],
+  "گلستان": ["گرگان", "گنبد کاووس", "علی‌آباد کتول", "آق‌قلا", "بندر ترکمن", "کردکوی", "آزادشهر", "کلاله", "مینودشت", "گالیکش", "بندر گز", "رامیان", "مراوه‌تپه", "گمیشان"],
+  "گیلان": ["رشت", "انزلی", "لاهیجان", "لنگرود", "آستارا", "رودبار", "صومعه‌سرا", "فومن", "تالش", "آستانه اشرفیه", "رودسر", "ماسال", "شفت", "رضوانشهر", "سیاهکل", "املش", "خمام", "لشت نشا"],
+  "لرستان": ["خرم‌آباد", "بروجرد", "دورود", "الیگودرز", "کوهدشت", "ازنا", "نورآباد", "الشتر", "پلدختر", "رومشکان"],
+  "مازندران": ["ساری", "بابل", "آمل", "قائم‌شهر", "بهشهر", "نوشهر", "چالوس", "تنکابن", "بابلسر", "نکا", "فریدونکنار", "محمودآباد", "رامسر", "جویبار", "نور", "گلوگاه", "سوادکوه", "عباس‌آباد", "کلاردشت"],
+  "مرکزی": ["اراک", "ساوه", "خمین", "محلات", "دلیجان", "شازند", "تفرش", "آشتیان", "فراهان", "کمیجان", "زرندیه", "خنداب"],
+  "هرمزگان": ["بندرعباس", "میناب", "بندر لنگه", "قشم", "رودان", "حاجی‌آباد", "بستک", "جاسک", "پارسیان", "بندر خمیر", "ابوموسی", "سیریک", "بشاگرد"],
+  "همدان": ["همدان", "ملایر", "نهاوند", "تویسرکان", "اسدآباد", "بهار", "کبودرآهنگ", "رزن", "فامنین"],
+  "یزد": ["یزد", "میبد", "اردکان", "مهریز", "بافق", "تفت", "ابرکوه", "اشکذر", "خاتم", "بهاباد"]
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    const provinceSelect = document.getElementById('checkout-province');
+    const citySelect = document.getElementById('checkout-city');
+    const codOptionWrapper = document.getElementById('cod-option-wrapper');
+    const submitBtn = document.getElementById('submit-order-btn');
+    const onlinePaymentRadio = document.querySelector('input[name="payment_method"][value="online"]');
+    const codPaymentRadio = document.querySelector('input[name="payment_method"][value="cod"]');
+
+    if (provinceSelect) {
+        // ۱. پر کردن لیست استان‌ها به صورت داینامیک
+        for (let province in iranData) {
+            let option = document.createElement('option');
+            option.value = province;
+            option.textContent = province;
+            provinceSelect.appendChild(option);
+        }
+
+        // ۲. واکنش به انتخاب استان
+        provinceSelect.addEventListener('change', function() {
+            const selectedProvince = this.value;
+            citySelect.innerHTML = '<option value="">انتخاب شهر...</option>';
+            
+            if (selectedProvince && iranData[selectedProvince]) {
+                citySelect.disabled = false;
+                iranData[selectedProvince].forEach(city => {
+                    let option = document.createElement('option');
+                    option.value = city;
+                    option.textContent = city;
+                    citySelect.appendChild(option);
+                });
+            } else {
+                citySelect.disabled = true;
+                citySelect.innerHTML = '<option value="">ابتدا استان را انتخاب کنید...</option>';
+            }
+
+            // ۳. شرط فعال‌سازی پرداخت درب منزل مخصوص استان تهران
+            if (selectedProvince === 'تهران') {
+                codOptionWrapper.style.display = 'block';
+            } else {
+                codOptionWrapper.style.display = 'none';
+                if (onlinePaymentRadio) onlinePaymentRadio.checked = true;
+                submitBtn.textContent = 'تایید و اتصال به درگاه بانکی';
+            }
+        });
+    }
+
+    // ۴. آپدیت کردن متن دکمه متناسب با انتخاب نوع پرداخت
+    const paymentRadios = document.querySelectorAll('input[name="payment_method"]');
+    paymentRadios.forEach(radio => {
+        radio.addEventListener('change', () => {
+            if (codPaymentRadio && codPaymentRadio.checked) {
+                submitBtn.textContent = 'ثبت نهایی سفارش (پرداخت درب منزل)';
+            } else {
+                submitBtn.textContent = 'تایید و اتصال به درگاه بانکی';
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>

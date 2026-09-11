@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>گالری ماتیک | حساب کاربری</title>
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="profile.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body class="dark-shop-body">
+
+<header>
+    <div class="logo">گالری <span>ماتیک</span></div>
+    
+    <div class="header-search-box">
+        <input type="text" id="global-search" placeholder="جستجو در محصولات...">
+        <i class='bx bx-search search-icon'></i>
+    </div>
+
+    <nav id="nav-menu">
+        <a href="index.html" class="active">خانه</a>
+        <a href="shop.html">فروشگاه</a>
+        <a href="profile.html">حساب کاربری</a>
+    </nav>
+
+    <div class="header-right">
+        <a href="index.html" class="mobile-nav-icon" title="خانه"><i class='bx bx-home-alt'></i></a>
+        
+        <a href="shop.html" class="mobile-nav-icon" title="فروشگاه"><i class='bx bx-store'></i></a>
+
+        <button id="dark-mode-toggle" class="theme-btn-header" title="تغییر پوسته"><i class='bx bx-moon'></i></button>
+        
+        <a href="profile.html" class="profile-btn" title="حساب کاربری"><i class='bx bx-user'></i></a>
+        
+        <div class="cart-btn" id="cart-trigger-btn" title="سبد خرید">
+            <i class='bx bx-cart'></i>
+            <span id="cart-count">0</span>
+        </div>
+    </div>
+</header>
+
+    <main class="profile-auth-section">
+        <div class="container-gate" id="auth-gate-wrapper">
+            
+            <!-- بخش ورود و ثبت نام -->
+            <div class="auth-box" id="auth-box-card">
+                <div class="auth-tabs">
+                    <button class="tab-btn active" id="tab-login-btn">ورود به حساب</button>
+                    <button class="tab-btn" id="tab-register-btn">ساخت حساب جدید</button>
+                </div>
+
+                <form id="login-form" class="auth-form-element active">
+                    <div class="form-group">
+                        <label><i class='bx bx-envelope'></i> پست الکترونیک (ایمیل)</label>
+                        <input type="email" id="login-email" placeholder="example@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class='bx bx-lock-alt'></i> رمز عبور</label>
+                        <input type="password" id="login-password" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="auth-primary-btn">ورود به حساب</button>
+                </form>
+
+                <form id="register-form" class="auth-form-element">
+                    <div class="form-group">
+                        <label><i class='bx bx-user'></i> نام و نام خانوادگی</label>
+                        <input type="text" id="reg-name" placeholder="مثلا: علی محمدی" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class='bx bx-envelope'></i> ایمیل</label>
+                        <input type="email" id="reg-email" placeholder="example@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class='bx bx-phone'></i> شماره موبایل</label>
+                        <input type="tel" id="reg-phone" placeholder="09123456789" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class='bx bx-lock-alt'></i> انتخاب رمز عبور</label>
+                        <input type="password" id="reg-password" placeholder="حداقل ۶ کاراکتر" required>
+                    </div>
+                    <button type="submit" class="auth-primary-btn">ایجاد حساب کاربری</button>
+                </form>
+            </div>
+
+            <!-- پنل داشبورد کاربر پس از ورود -->
+            <div class="full-dashboard-layout hidden" id="dashboard-panel-card" style="width: 100%;">
+                <div class="profile-container">
+                    
+                    <aside class="profile-sidebar-nav">
+                        <div class="user-avatar-meta">
+                            <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=koleStore" id="user-panel-avatar" alt="avatar">
+                            <h4 id="display-user-name">کاربر مهمان</h4>
+                            <span class="user-badge-level">سطح حساب: نقره‌ای</span>
+                        </div>
+                        <ul class="panel-menu-links">
+                            <li class="active" data-target="panel-info-section"><i class='bx bx-user-badge'></i> اطلاعات کاربری</li>
+                            <li data-target="panel-orders-section"><i class='bx bx-package'></i> تاریخچه سفارشات</li>
+                            <li data-target="panel-address-section"><i class='bx bx-map-pin'></i> آدرس‌های من</li>
+                            <li id="account-logout-trigger"><i class='bx bx-log-out-circle' style="color: #ff4e50;"></i> خروج از حساب</li>
+                        </ul>
+                    </aside>
+
+                    <div class="profile-content-area">
+                        
+                        <!-- ویرایش اطلاعات -->
+                        <div class="panel-sub-content active" id="panel-info-section">
+                            <div class="profile-card-box">
+                                <h3><i class='bx bx-edit'></i> ویرایش و تکمیل اطلاعات شناسایی</h3>
+                                <form id="advanced-profile-form">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label>نام و نام خانوادگی</label>
+                                            <input type="text" id="prof-username" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>آدرس ایمیل (غیرقابل تغییر)</label>
+                                            <input type="email" id="prof-email" readonly disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label>شماره تلفن همراه</label>
+                                            <input type="tel" id="prof-phone" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>کد ملی</label>
+                                            <input type="text" id="prof-idcard" placeholder="جهت صدور فاکتور رسمی">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label>شماره کارت بانکی (جهت عودت وجه)</label>
+                                            <input type="text" id="prof-bankcard" placeholder="۶۲۷۳-••••-••••-••••">
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="save-profile-btn">ذخیره و به‌روزرسانی مشخصات</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- تاریخچه سفارشات -->
+                        <div class="panel-sub-content" id="panel-orders-section">
+                            <div class="profile-card-box">
+                                <h3><i class='bx bx-package'></i> مرسولات و تاریخچه خریدها</h3>
+                                <div class="table-responsive">
+                                    <table class="orders-table">
+                                        <thead>
+                                            <tr>
+                                                <th>کد سفارش</th>
+                                                <th>تاریخ ثبت</th>
+                                                <th>وضعیت ارسال</th>
+                                                <th>مبلغ فاکتور</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="orders-table-rows">
+                                            <!-- رندر توسط جاوااسکریپت -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- مدیریت آدرس‌ها -->
+                        <div class="panel-sub-content" id="panel-address-section">
+                            <div class="profile-card-box">
+                                <h3><i class='bx bx-map'></i> دفترچه آدرس‌های ارسال بار</h3>
+                                <form id="panel-address-form" style="margin-bottom: 20px;">
+                                    <div class="form-group">
+                                        <label>عنوان آدرس (مثلا: خانه، محل کار)</label>
+                                        <input type="text" id="addr-title" placeholder="خانه" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>نشانی کامل پستی</label>
+                                        <textarea id="addr-full" rows="2" placeholder="استان - شهر - خیابان اصلی..." required></textarea>
+                                    </div>
+                                    <button type="submit" class="save-profile-btn" style="background: var(--gaming-magenta); color: white;">افزودن آدرس جدید</button>
+                                </form>
+                                <div id="user-addresses-list-box"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- سایدبار سبد خرید -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header"><h3>سبد خرید</h3><i class='bx bx-x' id="close-cart"></i></div>
+        <div class="cart-body" id="cart-items-container"></div>
+        <div class="cart-footer">
+            <div class="total-price"><span>جمع کل:</span><span id="cart-total-price">0 تومان</span></div>
+            <a href="checkout.html" class="checkout-btn-link">تکمیل خرید</a>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
+
+    <!-- اسکریپت‌ها -->
+    <script src="main.js"></script>
+</body>
+</html>

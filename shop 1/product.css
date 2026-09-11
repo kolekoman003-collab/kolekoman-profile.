@@ -1,0 +1,65 @@
+.single-product-section { padding: 120px 6% 60px 6%; max-width: 1200px; margin: 0 auto; }
+.product-details-grid { display: flex; gap: 40px; background: var(--gaming-card); border-radius: 16px; padding: 30px; border: 1px solid rgba(0,0,0,0.04); }
+.product-view-side { flex: 1; display: flex; justify-content: center; background: rgba(0,0,0,0.02); border-radius: 12px; padding: 15px; }
+.product-view-side img { max-width: 100%; height: 320px; object-fit: contain; }
+.product-info-side { flex: 1.3; display: flex; flex-direction: column; gap: 12px; }
+.product-info-side h1 { font-size: 24px; font-weight: 800; color: #1a1d20; }
+.product-price-row { font-size: 22px; font-weight: 700; color: var(--gaming-magenta); }
+.specs-list { list-style: none; margin: 10px 0; display: flex; flex-direction: column; gap: 8px; font-size: 13px; }
+.specs-list li strong { color: #1a1d20; }
+.specs-list li span { color: #666; }
+.primary-buy-btn { width: fit-content; padding: 12px 30px; background: var(--gaming-magenta); color: white; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; transition: var(--smooth); box-shadow: 0 0 15px rgba(0, 136, 255, 0.25); }
+.primary-buy-btn:hover { box-shadow: 0 0 25px var(--gaming-magenta); }
+
+/* COMMENTS NODE SYSTEM */
+.comments-layout-box { margin-top: 30px; background: var(--gaming-card); border-radius: 16px; padding: 30px; border: 1px solid rgba(0,0,0,0.04); }
+.comments-layout-box h3 { font-size: 16px; margin-bottom: 20px; color: #1a1d20; }
+.comment-form { display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px; padding-bottom: 25px; border-bottom: 1px solid rgba(0,0,0,0.05); }
+.comment-form input, .comment-form textarea { width: 100%; padding: 12px; background: rgba(0,0,0,0.02); border: 1px solid rgba(0,0,0,0.06); border-radius: 6px; color: #1a1d20; outline: none; font-size: 13px; }
+.comment-form button { width: fit-content; padding: 10px 24px; background: var(--gaming-cyan); color: white; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; }
+.comment-node { padding: 15px 0; border-bottom: 1px solid rgba(0,0,0,0.04); }
+.comment-meta { display: flex; justify-content: space-between; font-size: 11px; color: #888; margin-bottom: 6px; }
+.comment-meta strong { color: #444; }
+.comment-node p { font-size: 13px; color: #333; line-height: 1.6; }
+.comment-actions { display: flex; gap: 15px; margin-top: 10px; font-size: 12px; color: #888; }
+.comment-actions span { cursor: pointer; display: flex; align-items: center; gap: 4px; transition: var(--smooth); }
+.comment-actions span:hover { color: var(--gaming-cyan); }
+.single-comment-card { background: rgba(0, 0, 0, 0.01); border: 1px solid rgba(0, 0, 0, 0.04); padding: 15px 20px; border-radius: 8px; display: flex; flex-direction: column; gap: 8px; margin-bottom: 15px; }
+.comment-user-name { color: var(--gaming-magenta); font-weight: 600; }
+.comment-text-content { font-size: 0.95rem; line-height: 1.6; color: #333; }
+.submit-comment-btn { background: var(--gaming-magenta); color: #fff; border: none; padding: 10px 24px; border-radius: 6px; font-size: 0.9rem; cursor: pointer; transition: var(--smooth); }
+.submit-comment-btn:hover { box-shadow: 0 0 15px var(--gaming-magenta); transform: translateY(-2px); }
+
+/* RESPONSIVE PRODUCT */
+@media (max-width: 992px) {
+    .product-details-grid { flex-direction: column; }
+}
+
+
+
+.single-product-section { padding: 120px 6% 60px 6%; max-width: 1200px; margin: 0 auto; }
+.product-details-grid { display: flex; gap: 40px; background: var(--gaming-card); border-radius: 16px; padding: 30px; border: 1px solid rgba(0,0,0,0.04); transition: var(--smooth); }
+body.dark-mode .product-details-grid { border-color: rgba(255,255,255,0.05); }
+
+.product-view-side { flex: 1; display: flex; justify-content: center; background: rgba(0,0,0,0.02); border-radius: 12px; padding: 15px; }
+body.dark-mode .product-view-side { background: rgba(255,255,255,0.02); }
+.product-view-side img { max-width: 100%; height: 320px; object-fit: contain; }
+
+.product-info-side { flex: 1.3; display: flex; flex-direction: column; gap: 12px; text-align: right; }
+.product-info-side h1 { font-size: 24px; font-weight: 800; color: var(--text-white); }
+.product-price-row { font-size: 22px; font-weight: 700; color: var(--gaming-magenta); }
+
+.specs-list { list-style: none; margin: 10px 0; display: flex; flex-direction: column; gap: 8px; font-size: 13px; }
+.specs-list li { color: #666; }
+body.dark-mode .specs-list li { color: #aaa; }
+.specs-list li strong { color: var(--text-white); }
+
+/* COMMENTS SECTION */
+.product-comments-wrapper { margin-top: 50px; background: var(--gaming-card); border-radius: 16px; padding: 30px; border: 1px solid rgba(0,0,0,0.04); text-align: right; }
+body.dark-mode .product-comments-wrapper { border-color: rgba(255,255,255,0.05); }
+.single-comment-card { background: rgba(0, 0, 0, 0.01); border: 1px solid rgba(0, 0, 0, 0.04); padding: 15px 20px; border-radius: 8px; display: flex; flex-direction: column; gap: 8px; margin-bottom: 15px; }
+body.dark-mode .single-comment-card { background: rgba(255,255,255,0.02); border-color: rgba(255,255,255,0.05); }
+.comment-meta { display: flex; justify-content: space-between; font-size: 11px; color: #888; }
+.comment-meta strong { color: var(--text-white); }
+.comment-node p { font-size: 13px; color: #555; line-height: 1.6; }
+body.dark-mode .comment-node p { color: #ccc; }

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کول‌استور | لیست محصولات جامع</title>
+    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="global.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body class="dark-shop-body">
+
+<header>
+    <div class="logo">گالری <span>ماتیک</span></div>
+    
+    <div class="header-search-box">
+        <input type="text" id="global-search" placeholder="جستجو در محصولات...">
+        <i class='bx bx-search search-icon'></i>
+    </div>
+
+    <nav id="nav-menu">
+        <a href="index.html" class="active">خانه</a>
+        <a href="shop.html">فروشگاه</a>
+        <a href="profile.html">حساب کاربری</a>
+    </nav>
+
+    <div class="header-right">
+        <a href="index.html" class="mobile-nav-icon" title="خانه"><i class='bx bx-home-alt'></i></a>
+        
+        <a href="shop.html" class="mobile-nav-icon" title="فروشگاه"><i class='bx bx-store'></i></a>
+
+        <button id="dark-mode-toggle" class="theme-btn-header" title="تغییر پوسته"><i class='bx bx-moon'></i></button>
+        
+        <a href="profile.html" class="profile-btn" title="حساب کاربری"><i class='bx bx-user'></i></a>
+        
+        <div class="cart-btn" id="cart-trigger-btn" title="سبد خرید">
+            <i class='bx bx-cart'></i>
+            <span id="cart-count">0</span>
+        </div>
+    </div>
+</header>
+
+    <main class="shop-section">
+        <div class="shop-wrapper">
+            <aside class="filter-sidebar">
+                <div class="filter-box">
+                    <h4><i class='bx bx-search-alt'></i> جستجوی کالا</h4>
+                    <input type="text" id="search-input" placeholder="نام کالا یا برند...">
+                </div>
+                <div class="filter-box">
+                    <h4><i class='bx bx-grid-alt'></i> دسته‌بندی‌ها</h4>
+<ul class="category-list">
+    <li class="category-dropdown main-basket open"> <div class="dropdown-toggle main-toggle">
+            <span>سبد محصولات</span>
+            <span class="arrow-icon">▼</span>
+        </div>
+        
+        <ul class="dropdown-menu main-menu">
+            
+            <li class="category-item active" data-filter="all">همه دسته‌ها</li>
+            <li class="category-item" data-filter="sbd1">آرایش</li>
+            <li class="category-item" data-filter="sbd2">سلامت</li>
+            <li class="category-item" data-filter="sbd3">پوست بدن</li>
+            <li class="category-item" data-filter="sbd4">سبد جانبی</li>
+            <li class="category-item" data-filter="sbd5">پوست صورت</li>
+            <li class="category-item" data-filter="sbd6">مو و پوست سر</li>
+            <li class="category-item" data-filter="sbd7">کودک</li>
+            <li class="category-item" data-filter="sbd8">دهان و دندان</li>
+            <li class="category-item" data-filter="sbd9">عطر</li>
+
+            <hr class="filter-divider"> <li class="category-dropdown sub-dropdown">
+                <div class="dropdown-toggle">
+                    <span>برند ها</span>
+                    <span class="arrow-icon">▼</span>
+                </div>
+                <ul class="dropdown-menu">
+                    <li class="category-item" data-filter="brand-1">MND</li>
+                    <li class="category-item" data-filter="brand-2">Blackberry</li>
+                    <li class="category-item" data-filter="brand-3">ELLEN BEAUTY</li>
+                    <li class="category-item" data-filter="brand-4">Royal D</li>
+                    <li class="category-item" data-filter="brand-5">DentaLand</li>
+                    <li class="category-item" data-filter="brand-6">Love Time</li>
+                </ul>
+            </li>
+
+            <li class="category-dropdown sub-dropdown">
+                <div class="dropdown-toggle">
+                    <span>تیپ پوستی</span>
+                    <span class="arrow-icon">▼</span>
+                </div>
+                <ul class="dropdown-menu">
+                    <li class="category-item" data-filter="post1">پوست خشک</li>
+                    <li class="category-item" data-filter="post2">پوست چرب</li>
+                    <li class="category-item" data-filter="post3">پوست معمولی</li>
+                    <li class="category-item" data-filter="post4">پوست حساس</li>
+                    <li class="category-item" data-filter="post5">انواع پوست</li>
+                </ul>
+            </li>
+
+            <li class="category-dropdown sub-dropdown">
+                <div class="dropdown-toggle">
+                    <span>ساقه مو و کف سر</span>
+                    <span class="arrow-icon">▼</span>
+                </div>
+                <ul class="dropdown-menu">
+                    <li class="category-item" data-filter="hair-1">کف سر چرب</li>
+                    <li class="category-item" data-filter="hair-2">ساقه مو و کف سر خشک</li>
+                    <li class="category-item" data-filter="hair-3">شوره سر</li>
+                    <li class="category-item" data-filter="hair-4">ریزش مو</li>
+                    <li class="category-item" data-filter="hair-5">ترمیم مو و کف سر اسیب دیده</li>
+                    
+                </ul>
+            </li>
+
+            <li class="category-dropdown sub-dropdown">
+                <div class="dropdown-toggle">
+                    <span>عملکردی</span>
+                    <span class="arrow-icon">▼</span>
+                </div>
+                <ul class="dropdown-menu">
+                    <li class="category-item" data-filter="amlkard-1">شوینده و پاک کننده</li>
+                    <li class="category-item" data-filter="amlkard-2">مرطوب کننده و ابرسان</li>
+                    <li class="category-item" data-filter="amlkard-3">ضدافتاب</li>
+                    <li class="category-item" data-filter="amlkard-4">تونر</li>
+                    <li class="category-item" data-filter="amlkard-5">ماسک, اسکراب و لایه بردار</li>
+                    <li class="category-item" data-filter="amlkard-6">جوانساز و تقویت کننده</li>
+                    <li class="category-item" data-filter="amlkard-7">دور چشم</li>
+                    <li class="category-item" data-filter="amlkard-8">ترمیم کننده و کاهنده قرمزی</li>
+                    <li class="category-item" data-filter="amlkard-9">ضدلک و روشن کننده</li>
+                    <li class="category-item" data-filter="amlkard-10">ضدآکنه</li>
+                    <li class="category-item" data-filter="amlkard-11">شامپو روزانه</li>
+                    <li class="category-item" data-filter="amlkard-12">مراقبت روزانه ساق مو</li>
+                    <li class="category-item" data-filter="amlkard-13">تقویت کننده مو</li>
+                    <li class="category-item" data-filter="amlkard-14">تقویت ابرو و مژه</li>
+                    <li class="category-item" data-filter="amlkard-15">ضدشوره</li>
+                    <li class="category-item" data-filter="amlkard-16">ترمیم کننده موهای اسیب دیده و رنگ شده</li>
+                    <li class="category-item" data-filter="amlkard-17">سفیدکننده دندان</li>
+                    <li class="category-item" data-filter="amlkard-18">مراقبت از لثه و دندان حساس</li>
+                    <li class="category-item" data-filter="amlkard-19">مغذی و تقویت کننده بدن</li>
+                    <li class="category-item" data-filter="amlkard-20">مدیریت وزن</li>
+                    <li class="category-item" data-filter="amlkard-21">سم زدایی بدن</li>
+                </ul>
+            </li>
+
+        </ul>
+    </li>
+</ul>
+                </div>
+                <div class="filter-box">
+                    <h4><i class='bx bx-slider'></i> فیلتر قیمت</h4>
+                    <div class="price-range-wrapper">
+                        <input type="range" id="price-range" min="0" max="2000" value="2000">
+                        <div class="price-labels"><span id="price-value">$2000</span><span>$0</span></div>
+                    </div>
+                </div>
+            </aside>
+
+            <div class="products-grid-container">
+                <div class="card-all" id="dynamic-products-grid"></div>
+            </div>
+        </div>
+    </main>
+
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header"><h3>سبد خرید</h3><i class='bx bx-x' id="close-cart"></i></div>
+        <div class="cart-body" id="cart-items-container"></div>
+        <div class="cart-footer">
+            <div class="total-price"><span>جمع کل:</span><span id="cart-total-price">$0.00</span></div>
+            <a href="checkout.html" class="checkout-btn-link">تکمیل خرید</a>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
+<script src="../assets/js/products.js"></script>
+
+<script src="main.js"></script>
+</body>
+</html>
